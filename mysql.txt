@@ -1,0 +1,4 @@
+1、when changed MySQL password， some commands needed to be done：
+     1.grant all privileges on `nms`.* to root@localhost identified by 'NEW PWD';
+     2.grant all privileges on `nms`.* to root@'%' identified by 'NEW PWD';
+     3.flush privileges; 
