@@ -4,3 +4,5 @@
   ObjectMapper.setVisibility(PropertyAccessor.GETTER, JsonAutoDetect.Visibility.NONE);
   ObjectMapper.setVisibility(PropertyAccessor.SETTER, JsonAutoDetect.Visibility.NONE);
   ObjectMapper.setVisibility(PropertyAccessor.IS_GETTER, JsonAutoDetect.Visibility.NONE);
+
+2、不能序列化static的filed，如果不允许通过getter序列化，如上面的设置。
