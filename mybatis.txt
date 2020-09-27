@@ -82,3 +82,15 @@
     
 
 2、mybatis参数分析：https://blog.csdn.net/isea533/article/details/44002219
+
+3、jdbc关键对象Connection、Statement/PreparedStatement、ResultSet
+
+4、mybatis插件可拦截的对象：Executor、ParameterHandler、ResultsetHandler、StatementHandler
+
+5、设计模式：cache的装饰器模式，executor装饰器模式（cachingExecutor），代理模式（MapperProxyFactory，SqlSessionTemplate.sqlSessionProxy），建造者模式（），享元模式（Configuration）
+
+6、SqlSessionFactoryBuilder-build-parse mybatis config-Configuration-SqlSessionFactory（DefaultSqlSessionFactory）-
+
+7、mybatis-spring中的SqlSessionTemplate是线程安全的，它包含两个成员变量sqlSessionFactory（SqlSessionFactory）和sqlSessionProxy（SqlSession），表面上所有操作直接调用sqlSessionProxy，其实在每次执行crud的时候都是创建了一个sqlSession，sqlSessionProxy是SqlSession的一个代理实现类。sqlSessionProxy通过jdk动态代理的newInstance创建，其中InvocationHandler的具体实现是template的一个私有内部类SqlSessionInterceptor，它在invoke中通过sqlSessionFactory创建和关闭SqlSession
+
+8、IUserDao userDao = session.getMapper(IUserDao.class)是通过DefaultSession创建了IUserDao的代理对象。mybatis加载配置文件之后，将指定的每个mapper接口包装成MapperProxyFactory保存起来，其中接口类型作为成员变量，通过实现了InvocationHandler的MapperProxy作为h，使用jdk动态代理创建mapper接口的代理对象Proxy.newInstance(classLoader, new class[]{mapper接口}, mapperProxy)。其中，
