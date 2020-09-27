@@ -1,0 +1,9 @@
+并发&并行
+tomcat配置与调优（结合springboot内置tomcat）
+Java中的线程Runnable接口，Thread类，Callable接口（call方法）
+httpclient
+操作系统和java的线程状态
+线程中断
+锁的类型以及升级，如何标记获得锁
+jol-core查看类布局
+ThreadLocal
